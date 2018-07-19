@@ -17,12 +17,14 @@ from django.contrib import admin
 from django.urls import path
 from django.conf.urls.static import static
 from django.conf import settings
-from main import views as m
+
+#Importing Views
+from main import views as main
+from seller import views as seller
+from buyer import views as buyer
+from administrator import views as administrator
 
 urlpatterns = [
-	path('try/',m.mtry),
-	path('home/',m.home),
-	path('login/',m.user_login),
-    path('admin/', admin.site.urls)
 ]
+
 urlpatterns += static("/",document_root=settings.BASE_DIR)

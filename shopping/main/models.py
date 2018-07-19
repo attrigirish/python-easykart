@@ -17,14 +17,14 @@ class Seller(models.Model):
 	gstin=models.IntegerField()
 
 
-class customer(models.Model):
+class Customer(models.Model):
 	name=models.CharField(max_length=20)
 	gender=models.CharField(max_length=10)
 	phone=models.CharField(max_length=13)
 	photo=models.FileField()
 
 class ShippingAddress(models.Model):
-	customerid=models.ForeignKey(customer,on_delete=models.PROTECT)
+	customerid=models.ForeignKey(Login,on_delete=models.PROTECT)
 	title=models.CharField(max_length=20)
 	hno=models.CharField(max_length=20)
 	area=models.CharField(max_length=20)
@@ -59,11 +59,11 @@ class FeatureValue(models.Model):
 	value=models.CharField(max_length=40)
 
 class Cart(models.Model):
-	customerid=models.ForeignKey(customer,on_delete=models.PROTECT)
+	customerid=models.ForeignKey(Login,on_delete=models.PROTECT)
 	productid=models.ForeignKey(Product,on_delete=models.PROTECT)
 
 class Order(models.Model):
-	customerid=models.ForeignKey(customer,on_delete=models.PROTECT)
+	customerid=models.ForeignKey(Login,on_delete=models.PROTECT)
 	addressid=models.ForeignKey(ShippingAddress,on_delete=models.PROTECT)
 	datetime=models.DateTimeField()
 	amount=models.DecimalField(max_digits=10,decimal_places=2)
