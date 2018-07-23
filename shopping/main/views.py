@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from django.http import HttpResponse
 from main.forms import *
+
 # Create your views here.
 
 def user_login(request):

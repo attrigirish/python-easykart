@@ -25,6 +25,8 @@ from buyer import views as buyer
 from administrator import views as administrator
 
 urlpatterns = [
+
+path('loginHome/',administrator.login),
 ]
 
 urlpatterns += static("/",document_root=settings.BASE_DIR)
