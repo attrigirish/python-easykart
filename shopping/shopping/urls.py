@@ -25,6 +25,12 @@ from buyer import views as buyer
 from administrator import views as administrator
 
 urlpatterns = [
+
+	#Category Model
+	path('admin/category/add/', administrator.AddCategory),
+	path('admin/category/delete/<int:id>/', administrator.DeleteCategory),
+	path('admin/category/update/<int:id>/', administrator.UpdateCategory),
+	path('admin/categories/', administrator.Categories),
 ]
 
 urlpatterns += static("/",document_root=settings.BASE_DIR)
